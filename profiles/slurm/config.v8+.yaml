@@ -4,7 +4,6 @@ executor: slurm
 slurm-logdir: logs/SLURM_out
 slurm-status-command: sacct
 slurm-qos: cpu-normal
-slurm-partition: acpu
 
 # IMPORTANT - EDIT WHAT FOLLOWS!
 default-resources:

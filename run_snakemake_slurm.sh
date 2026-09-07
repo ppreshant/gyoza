@@ -3,7 +3,7 @@
 #SBATCH --job-name=snakemake
 #SBATCH --ntasks=1
 #SBATCH --qos=cpu-normal
-#SBATCH --partition=acpu
+#SBATCH -p acpu
 #SBATCH --time=12:00:00
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=4G
