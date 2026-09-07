@@ -4,8 +4,8 @@
 # Usage: sbatch run_snakemake_slurm.sh
 
 # export path shortcut for the repo and run directories
-export REPO="/home/$USER/deepmut_variant_analysis/gyoza"
-export RUN="/scratch/alpine/$USER/deepmut_variant_analysis/gyoza/toy"
+export REPO=/home/$USER/deepmut_variant_analysis/gyoza
+export RUN=/scratch/alpine/$USER/deepmut_variant_analysis/gyoza/toy
 
 #SBATCH --job-name=snakemake
 #SBATCH --qos=cpu-normal
