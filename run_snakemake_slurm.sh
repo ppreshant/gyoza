@@ -8,7 +8,7 @@ export REPO="/home/$USER/deepmut_variant_analysis/gyoza"
 export RUN="/scratch/alpine/$USER/deepmut_variant_analysis/gyoza/toy"
 
 #SBATCH --job-name=snakemake
-#SBATCH --account=YOUR_ALLOCATION
+#SBATCH --qos=cpu-normal
 #SBATCH --partition=acpu
 #SBATCH --time=12:00:00
 #SBATCH --cpus-per-task=1
