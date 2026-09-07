@@ -6,7 +6,7 @@ slurm-status-command: sacct
 
 # IMPORTANT - EDIT WHAT FOLLOWS!
 default-resources:
-  - slurm_partition="small"
+  - slurm_partition="acpu"
   - mem_mb=1024
   - runtime=30
   - slurm_extra="--mail-type=FAIL --mail-user=<YOUR-EMAIL-ADDRESS>"
