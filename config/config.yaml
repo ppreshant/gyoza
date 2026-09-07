@@ -6,7 +6,7 @@ project:
     # provided: You provide the list of expected mutants
     # barcode: You provide the dataframe of barcode-variant associations
     # random: Random mutagenesis - mutants observed in the sequencing data are directly annotated
-    design: 'codon'
+    design: 'random'
     # Specify path to folder containing project-specific files
     folder: 'config/project_files/'
     # Specify what makes each sample unique for any unscreened library
@@ -44,7 +44,7 @@ process_all_samples: False
 perform_qc: True
     # Set to True if you want to run Fastp on all raw FASTQ files and generate a MultiQC report
 
-process_frequencies: True
+process_frequencies: False
     # Set to True if you want to convert allele frequencies into functional impact scores
     # Set to False to analyze unscreened libraries or output samples with no matching input replicate
 
