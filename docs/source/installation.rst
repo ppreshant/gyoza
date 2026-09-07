@@ -39,7 +39,7 @@ Install requirements
 
     uv venv gyoza_env --python 3.13
     source gyoza_env/bin/activate
-    uv pip install "snakedeploy==0.15.0" "snakemake==9.14.0" "snakemake-wrapper-utils==0.8.0" "snakemake-executor-plugin-cluster-generic==1.0.9" pygments setuptools
+    uv pip install "snakedeploy==0.15.0" "snakemake==9.14.0" "snakemake-wrapper-utils==0.8.0" "snakemake-executor-plugin-slurm" pygments setuptools
 
 Whenever ``gyoza_env`` is activated, you should see it in the prompt:
 

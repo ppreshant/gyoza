@@ -1,25 +1,15 @@
 # Technical configuration file for gyōza
 
-executor: cluster-generic
-cluster-generic-submit-cmd:
-  sbatch
-    --partition={resources.partition}
-    --mem={resources.mem_gb}G
-    --cpus-per-task={resources.threads}
-    --time={resources.time}
-    --job-name=smk-{rule}-{wildcards}
-    --output=logs/SLURM_out/{rule}/{rule}-%j-{wildcards}.out
-    --mail-type=FAIL
-    --mail-user={resources.mail}
-    --parsable
+executor: slurm
+slurm-logdir: logs/SLURM_out
+slurm-status-command: sacct
 
 # IMPORTANT - EDIT WHAT FOLLOWS!
 default-resources:
-  - mail="<YOUR-EMAIL-ADDRESS>"
-  - partition="small"
-  - mem_gb=1
-  - threads=10
-  - time="00:30:00"
+  - slurm_partition="small"
+  - mem_mb=1024
+  - runtime=30
+  - slurm_extra="--mail-type=FAIL --mail-user=<YOUR-EMAIL-ADDRESS>"
 
 # Dynamic allocation of rule-specific resources
 # Resources for rule generate_mutants is handled dynamically in the smk file based on config entry
@@ -27,27 +17,27 @@ default-resources:
 # Resources allocated should prevent overallocation but might not be enough at first attempt
 set-resources:
   fastp:
-    mem_gb: min(10, max(int(0.02 * input.size_mb * attempt + 0.99), 1))
-    time: max(int(0.01 * input.size_mb * attempt + 0.99), 1)
+    mem_mb: min(10240, max(int(0.02 * input.size_mb * attempt * 1024 + 0.99), 1024))
+    runtime: max(int(0.01 * input.size_mb * attempt + 0.99), 1)
   compare_to_sequencing:
-    mem_gb: min(10, max(int(0.15 * input.size_mb * attempt + 0.99), 2))
-    time: max(int(0.15 * input.size_mb * attempt + 0.99), 2)
+    mem_mb: min(10240, max(int(0.15 * input.size_mb * attempt * 1024 + 0.99), 2048))
+    runtime: max(int(0.15 * input.size_mb * attempt + 0.99), 2)
   annotate_mutants:
-    time: max(int(0.002 * input.size_mb * attempt + 0.99), 1)
+    runtime: max(int(0.002 * input.size_mb * attempt + 0.99), 1)
   cutadapt:
-    time: max(int(0.01 * input.size_mb * attempt + 0.99), 1)
+    runtime: max(int(0.01 * input.size_mb * attempt + 0.99), 1)
   bbmerge:
-    time: max(int(0.005 * input.size_mb * attempt + 0.99), 1)
+    runtime: max(int(0.005 * input.size_mb * attempt + 0.99), 1)
   vsearch_fastx_uniques:
-    time: max(int(0.0004 * input.size_mb * attempt + 0.99), 1)
+    runtime: max(int(0.0004 * input.size_mb * attempt + 0.99), 1)
   stats:
-    time: max(int(0.001 * input.size_mb * attempt + 0.99), 1)
+    runtime: max(int(0.001 * input.size_mb * attempt + 0.99), 1)
   parse_fasta:
-    mem_gb: min(10, max(int(0.002 * input.size_mb * attempt + 0.99), 1))
-    time: max(int(0.002 * input.size_mb * attempt + 0.99), 1)
+    mem_mb: min(10240, max(int(0.002 * input.size_mb * attempt * 1024 + 0.99), 1024))
+    runtime: max(int(0.002 * input.size_mb * attempt + 0.99), 1)
   process_read_counts:
-    mem_gb: min(10, max(int(0.2 * input.size_mb * attempt + 0.99), 1))
-    time: max(int(0.5 * input.size_mb * attempt + 0.99), 1)
+    mem_mb: min(10240, max(int(0.2 * input.size_mb * attempt * 1024 + 0.99), 1024))
+    runtime: max(int(0.5 * input.size_mb * attempt + 0.99), 1)
 
 set-threads:
   fastp: 4
@@ -65,6 +55,3 @@ restart-times: 3
 #printshellcmds: True
 scheduler: greedy
 use-conda: True
-cluster-generic-cancel-cmd: scancel
-cluster-generic-cancel-nargs: 1000
-cluster-generic-status-cmd: status-sacct.sh
