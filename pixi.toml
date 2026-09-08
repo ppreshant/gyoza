@@ -1,0 +1,12 @@
+[workspace]
+name = "gyoza"
+channels = ["conda-forge", "bioconda"]
+platforms = ["linux-64"]
+
+[dependencies]
+snakedeploy = "=0.15.0"
+snakemake = "=9.14.0"
+snakemake-wrapper-utils = "=0.8.0"
+snakemake-executor-plugin-cluster-generic = "=1.0.9"
+pygments = "*"
+setuptools = "*"
