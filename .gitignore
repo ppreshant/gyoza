@@ -12,3 +12,6 @@ logs/**
 *.html
 docs/build
 docs/source/api
+# pixi environments
+.pixi/*
+!.pixi/config.toml

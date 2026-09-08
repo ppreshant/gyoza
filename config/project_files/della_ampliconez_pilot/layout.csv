@@ -1,3 +1,3 @@
-Sample_name,R1,R2,N_forward,N_reverse,Mutated_seq,Replicate,Timepoint,Pos_start,Pos_stop,Analyze,Report
-input,GS2431UQ5AF_R1_001.fastq.gz,GS2431UQ5AF_R2_001.fastq.gz,GCTCATCAATTTCTAAGGATAAGATGATGATG,CTCTACCCGCTAGCAGCAAC,della,r1,T0,1,238,True,yes
-enriched,GS2436UQ5AF_R1_001.fastq.gz,GS2436UQ5AF_R2_001.fastq.gz,GCTCATCAATTTCTAAGGATAAGATGATGATG,CTCTACCCGCTAGCAGCAAC,della,r1,T1,1,238,True,yes
+Sample_name,R1,R2,N_forward,N_reverse,Mutated_seq,Replicate,Timepoint,Pos_start,Pos_stop,Analyze,Report,Species,Mating_type,Fragment
+input,GS2431UQ5AF_R1_001.fastq.gz,GS2431UQ5AF_R2_001.fastq.gz,GCTCATCAATTTCTAAGGATAAGATGATGATG,CTCTACCCGCTAGCAGCAAC,della,r1,T0,1,238,True,yes,,,
+enriched,GS2436UQ5AF_R1_001.fastq.gz,GS2436UQ5AF_R2_001.fastq.gz,GCTCATCAATTTCTAAGGATAAGATGATGATG,CTCTACCCGCTAGCAGCAAC,della,r1,T1,1,238,True,yes,,,

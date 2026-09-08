@@ -11,7 +11,7 @@ project:
     folder: 'config/project_files/della_ampliconez_pilot/'
     # Specify what makes each sample unique for any unscreened library
     # (other than Replicate)
-    sample_attributes: ['Species', 'Mating_type', 'Fragment']
+    sample_attributes: ['Sample_name', 'Timepoint']
     # Specify what makes each screening condition unique
     # (other than Timepoint)
     screening_attributes: []
