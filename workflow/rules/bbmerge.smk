@@ -12,4 +12,4 @@ rule bbmerge:
         command="bbmerge.sh",
     threads: 8
     wrapper:
-        "v8.0.3/bio/bbtools"  # bbtools v39.52
+        "v9.16.0/bio/bbtools"  # bbtools v39.52
