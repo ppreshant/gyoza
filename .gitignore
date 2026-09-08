@@ -1,5 +1,5 @@
 config/project_files/nbgen.csv
-results/**
+*results/**
 resources/**
 workflow/scripts/__pycache__/**
 logs/**
