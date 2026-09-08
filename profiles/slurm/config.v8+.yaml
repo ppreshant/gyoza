@@ -10,7 +10,7 @@ default-resources:
   - slurm_partition="acpu"
   - mem_mb=1024
   - runtime=30
-  - slurm_extra="--mail-type=FAIL --mail-user=<YOUR-EMAIL-ADDRESS>"
+  # - slurm_extra="--mail-type=FAIL --mail-user=<YOUR-EMAIL-ADDRESS>"
 
 # Dynamic allocation of rule-specific resources
 # Resources for rule generate_mutants is handled dynamically in the smk file based on config entry
